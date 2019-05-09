@@ -1,9 +1,15 @@
 from setuptools import setup
-import quamash
+
 import re
 import os.path
 
-groups = re.findall(r'(.+?) <(.+?)>(?:,\s*)?', quamash.__author__)
+__author__ = 'Mark Harviston <mark.harviston@gmail.com>, Arve Knudsen <arve.knudsen@gmail.com>'
+__version__ = '0.6.1'
+__url__ = 'https://github.com/harvimt/quamash'
+__license__ = 'BSD'
+__all__ = ['QEventLoop', 'QThreadExecutor']
+
+groups = re.findall(r'(.+?) <(.+?)>(?:,\s*)?', __author__)
 authors = [x[0].strip() for x in groups]
 emails = [x[1].strip() for x in groups]
 
@@ -13,13 +19,13 @@ with open(desc_path, encoding='utf8') as desc_file:
 
 setup(
 	name='Quamash',
-	version=quamash.__version__,
-	url=quamash.__url__,
+	version=__version__,
+	url=__url__,
 	author=', '.join(authors),
 	author_email=', '.join(emails),
 	packages=['quamash'],
-	license=quamash.__license__,
-	description=quamash.__doc__,
+	license=__license__,
+	description=__doc__,
 	long_description=long_description,
 	keywords=['Qt', 'asyncio'],
 	classifiers=[
